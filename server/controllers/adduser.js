@@ -5,23 +5,21 @@ const config = require('../dbconfig.js')[env];
 
 const adduser = async (req, res = response) => {
   console.log(req.body);
-  const { email, password } = req.body;
-//   const db = mysql.createConnection({
-//     host: config.host,
-//     user: config.user,
-//     password: config.password,
-//     database: config.database
-//   }
-//   );
-//   db.connect((err) => {
-//     if (err) {
-//         console.error('Error connecting to MySQL:', err);
-//     } else {
-//         console.log('Connected to MySQL');
-//     }
-// });
-let dbcon = mysql.createConnection(config);
-
+  // const { email, password } = req.body;
+  const db = mysql.createConnection({
+    host: config.host,
+    user: config.user,
+    password: config.password,
+    database: config.database
+  }
+  );
+  db.connect((err) => {
+    if (err) {
+        console.error('Error connecting to MySQL:', err);
+    } else {
+        console.log('Connected to MySQL');
+    }
+});
   const QUERY = `INSERT INTO Users SET ?`;
   const userData = req.body;
   console.log(userData);
