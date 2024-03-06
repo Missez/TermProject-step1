@@ -20,7 +20,7 @@ const adduser = async (req, res = response) => {
         console.log('Connected to MySQL');
     }
 });
-  const QUERY = `INSERT INTO Users SET ?`;
+  const QUERY = `INSERT INTO users SET ?`;
   const userData = req.body;
   console.log(userData);
  
